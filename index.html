@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Password Generator</h1>
+      <div class="input-group">
+        <label for="length">Password Length:(8-16 Char)</label>
+        <input
+          id="password-length"
+          type="number"
+          min="8"
+          max="16"
+          maxlength="2"
+          oninput="this.value=this.value.slice(0,this.maxLength)"
+          value="8"
+        />
+      </div>
+      <div class="password-display">
+        <input
+          id="password"
+          type="text"
+          placeholder="Your secure password"
+          readonly
+        />
+      </div>
+      <button class="password-button" id="generate-password-button">
+        Generate Password</button
+      ><button class="copy-button" id="copy-password-button">Copy</button>
+      <div id="message-text"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
