@@ -8,32 +8,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1 class="title">Password Generator</h1>
-      <div class="input-group">
-        <label for="length">Password Length:(8-16 Char)</label>
-        <input
-          id="password-length"
-          type="number"
-          min="8"
-          max="16"
-          maxlength="2"
-          oninput="this.value=this.value.slice(0,this.maxLength)"
-          value="8"
-        />
+    <div class="app">
+      <div class="background-ornaments" aria-hidden="true">
+        <span class="glow glow-one"></span>
+        <span class="glow glow-two"></span>
+        <span class="glow glow-three"></span>
       </div>
-      <div class="password-display">
-        <input
-          id="password"
-          type="text"
-          placeholder="Your secure password"
-          readonly
-        />
-      </div>
-      <button class="password-button" id="generate-password-button">
-        Generate Password</button
-      ><button class="copy-button" id="copy-password-button">Copy</button>
-      <div id="message-text"></div>
+      <main class="card" role="main">
+        <header class="card__header">
+          <h1 class="title">Random Password Generator</h1>
+          <p class="subtitle">
+            Create a strong password with a single click and copy it instantly.
+          </p>
+        </header>
+
+        <section class="input-group">
+          <label for="password-length">Password length</label>
+          <div class="input-wrapper">
+            <input
+              id="password-length"
+              type="number"
+              min="8"
+              max="16"
+              maxlength="2"
+              oninput="this.value=this.value.slice(0,this.maxLength)"
+              value="12"
+            />
+            <span class="input-hint">8-16 characters</span>
+          </div>
+        </section>
+
+        <section class="password-display">
+          <input
+            id="password"
+            type="text"
+            placeholder="Your secure password appears here"
+            readonly
+          />
+          <span class="password-highlight" aria-hidden="true"></span>
+        </section>
+
+        <div class="actions">
+          <button class="button password-button" id="generate-password-button">
+            Generate
+          </button>
+          <button class="button button--ghost copy-button" id="copy-password-button">
+            Copy
+          </button>
+        </div>
+
+        <p id="message-text" class="message" role="status" aria-live="polite"></p>
+      </main>
     </div>
     <script src="script.js"></script>
   </body>
